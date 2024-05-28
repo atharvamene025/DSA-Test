@@ -1,0 +1,85 @@
+//q1Write a JavaScript for loop that iterates from 1 to 100 and prints "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both 3 and 5.
+
+for (var i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log(i + " FizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log(i + " Fizz");
+  } else if (i % 5 === 0) {
+    console.log(i + " Buzz");
+  } else {
+    console.log(i);
+  }
+}
+
+// Create a JavaScript function that takes two arrays as input and returns a new array containing only the elements that are present in both arrays (intersection).
+// // Input://
+
+array1 = [1, 2, 3, 4];
+array2 = [2, 4, 6, 8];
+array3 = [];
+function intersection(array1, array2) {
+  for (var i = 0; i < array1.length; i++) {
+    for (var j = 0; j < array1.length; j++) {
+      if (array1[i] === array2[j]) {
+        array3.push(array1[i]);
+      }
+    }
+  }
+  return array3;
+}
+const intersection1 = intersection(array1, array2);
+console.log(intersection1);
+
+// Q7.Create a JavaScript program that implements a basic binary search algorithm. The function should take a sorted array and a target value, and return the index of the target value or -1 if it's not found.
+
+var number = [1, 2, 3, 4, 5, 6];
+var target = 4;
+
+function binarysearch(array, target) {
+  var left = 0;
+  var right = array.length - 1;
+  while (left <= right) {
+    var midindex = Math.ceil((left + right) / 2);
+    console.log(midindex, "midindex", array[midindex]);
+    if (array[midindex] === target) {
+      return midindex;
+    } else if (array[midindex] < target) {
+      console.log(array[midindex], target, "element is lesser than target");
+      left = midindex + 1;
+    } else if (array[midindex] > target) {
+      console.log(array[midindex], target, "element is greater than target");
+      left = midindex - 1;
+    }
+  }
+}
+
+const result = binarysearch(number, target);
+console.log(result);
+
+// Question 8:
+// Write a JavaScript function that takes a string as input and returns the first non-repeated character. If all characters are repeated, return null.
+// Input:
+
+function NonRepeatCharacter(str) {
+  const charCount = {};
+
+  for (let char of str) {
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+
+  for (let char of str) {
+    if (charCount[char] === 1) {
+      return char;
+    }
+  }
+
+  return null;
+}
+
+// Example usage:
+console.log(NonRepeatCharacter("swiss")); // Output: "w"
